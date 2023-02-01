@@ -6,46 +6,105 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Primi passi operativi per creare un modello di pagina HTML per un post. Scopri come iniziare in modo facile.">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
     <title>Sviluppo di una pagina web - Blog Epicode</title>
     <style>
-        nav ul{
-            list-style-type: none
+        body, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
         }
-        nav ul li{
-            display: inline;
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 300;
         }
-        #container {
-            width: 80%;
-            margin: 0 auto;
+        p {
+            margin: 5px 0;
         }
+        header, footer {
+            padding: 5px 10px;
+            background-color: #f93b8d;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header span {
+            font-size: 26px;
+            font-weight: 700;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #463680;
+            font-weight: 500;
+        }        
         table {
-            border: 1px solid #000;
+            border-collapse: collapse;
             margin: 0 auto;
         }
 
-        table th,
-        table td {
-            border: 1px solid #000;
+        table th, table td {
+            padding: 10px;
+            border-bottom: 1px solid #000;
         }
-        aside article{
-            display: inline-block;
+        table td {
+            text-align: center;
+        }
+        table thead {
+            background-color: #f93b8d;
+        }
+        main {
+            border-bottom: 2px solid #f93b8d;
+        }
+        #logo {
+            width: 150px;
+        }
+        #articoli {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        #articoli article {
+            width: 210px;
             margin: 10px;
             padding: 5px;
             border: 1px solid #000;
             border-radius: 10px;
         }
-        #brand img{
-            width: 150px;
+        #articoli article a {
+            text-decoration: none;
+            color: #463680;
+            font-weight: 500;
+        }
+        #contatti {
+            margin: 10px 0;
+        }
+
+        /* 
+        ##Device = Desktops
+        ##Screen = 1281px to higher resolution desktops
+        */
+        @media (min-width: 1281px) {
+            #container, #footer-content {
+                width: 80%;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <div id="brand">
-            <img src="./assets/img/logo.svg" alt="Logo">
-            <span>Epicode - II blog dei developers</span>
-        </div>
+        <img id="logo" src="./assets/img/logo.svg" alt="Logo">
+        <span>Epicode - II blog dei developers</span>
         <!--inizio menù-->
         <nav>
             <ul>
@@ -122,7 +181,7 @@
                 </p>
                 <iframe 
                     width="100%" 
-                    height="315" 
+                    height="450" 
                     src="https://www.youtube.com/embed/vIzNBGmn_98" 
                     title="YouTube video player" 
                     frameborder="0" 
@@ -135,23 +194,22 @@
         <aside>
             <!--form newsletter-->
             <form id="contatti">
-                <h2>Vuoi rimanere aggiornato su altre novitå del blog?</h2>
-                <h3>Iscriviti alla nostra newsletter:</h3>
-                <input type="text" name="email" placeholder="inserisci email">
+                <h3>Vuoi rimanere aggiornato su altre novità del blog?</h3>
+                <label for="email">Iscriviti alla nostra newsletter:</label>
+                <input id="email" type="text" name="email" placeholder="inserisci email">
                 <input type="submit" value="Iscriviti!">
             </form>
             <!--fine form newsletter-->
-                    
+            <h2>Articoli correlati</h2>       
             <section id="articoli">
                 <!--area correlati-->
-                <h2>Articoli correlati</h2>
                 <article>
-                    <a href=""><h3>Validare il codice HTML</h3></a> 
+                    <a href="#"><h3>Validare il codice HTML</h3></a> 
                     <p>Categoria: develop </p>
                     <p>Data: <time datetime="18-9-2020">18-9-2020</time></p>
                 </article>
                 <article>
-                    <a href=""><h3>Correggere la sintassi</h3></a>
+                    <a href="#"><h3>Correggere la sintassi</h3></a>
                     <p>Categoria: develop </p>
                     <p>Data: <time datetime="16-9-2020">16-9-2020</time></p>
                 </article>
@@ -164,13 +222,13 @@
             <!--fine area correlati-->
         </aside>
         <!--copyright e info-->
-        <footer id="job">
-            <h2>Blog Epicode &copy;2021</h2>
-            <p>Testata online di Mario Rossi, registrata con prot. n.213/2018</p>
-            <address> Luigi Einaudi 2 - Milano</address>
-            <p>P.IVA 00112233 <a href="mailto:info@epicode.school">info@epicode.school</a></p> 
-        </footer>
     </div>
+    <footer id="job">
+        <div id="footer-content">
+            <h2>Blog Epicode &copy;2021</h2>
+            <address>Testata online di Mario Rossi, registrata con prot. n.213/2018 - Via Luigi Einaudi 2 - Milano P.IVA 00112233 <a href="mailto:info@epicode.school">info@epicode.school</a></address> 
+        </div>
+    </footer>
 </body>
 
 </html>
