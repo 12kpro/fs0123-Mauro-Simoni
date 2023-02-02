@@ -17,8 +17,12 @@ h2{
     font-weight: bold;
 }
 h3 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+h4 {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 a {
     color: #00a1c8;
@@ -30,11 +34,16 @@ p {
 img {
     max-width: 100%;
 }
-header {
-    margin-bottom: 30px;
+i {
+    margin-right: 5px;
 }
-header, footer {
+header {
+    
+}
+header, footer, .content {
+    margin-bottom: 30px;
     background-color: #00819f;
+    box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.73);
    }
 code {
     background-color: #e1e1e2;
@@ -52,7 +61,7 @@ article, form {
 }
 .container {
     width: 400px;
-    margin: 20px auto
+    margin: 20px auto 0 auto
 }
 .content {
     box-shadow: ;
@@ -76,9 +85,11 @@ article, form {
 }
 .navbar .menu a::before {
     content:'=>';
+    margin-right: 10px;
 }
 .navbar .menu a::after {
     content:'<=';
+    margin-left: 10px;
 }
 .navbar span {
     display: block;
@@ -105,15 +116,11 @@ main article{
 main ul, main ol{
     margin-bottom: 20px;
     padding-left: 40px;
-}
-main ul li p:not(:last-child){
-
-}
-main ol li {
-
+    line-height: 25px;
 }
 iframe {
     width: 100%;
+    border-radius: 15px;
 }
 /* ELEMENTI NEL MAIN - ARTICLE */
 
