@@ -38,11 +38,15 @@ i {
     margin-right: 5px;
 }
 header {
-    
+    background: linear-gradient(180deg, rgba(0,157,201,1) 0%, rgba(8,111,136,1) 83%);;
+}
+footer {
+    padding: 20px;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(0,85,102,1) 0%, rgba(49,67,68,1) 64%);
 }
 header, footer, .content {
     margin-bottom: 30px;
-    background-color: #00819f;
     box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.73);
    }
 code {
@@ -64,7 +68,6 @@ article, form {
     margin: 20px auto 0 auto
 }
 .content {
-    box-shadow: ;
     background-color: #fff;
     padding: 40px 20px;
     margin-bottom: 30px;
@@ -157,14 +160,19 @@ table caption {
 form p{
     text-align: justify;
 }
+input{
+    font-size: 1.2rem;
+}
 input[type="email"]{
+    border: none;
     border-bottom: 1px dashed #000;
 
 }
 input[type="submit"]{
     color: #fff;
-    background-color: #3966c6;
     font-weight: bold;
+    background-color: #3966c6;
+    border: none;
 }
 /* ELEMENTI NELL' ASIDE */
 p.date{
@@ -172,11 +180,6 @@ p.date{
     margin-bottom: 0;
 }
 /* FOOTER */
-footer {
-    padding: 20px;
-    color: #fff;
-}
-
 footer a {
     color: #fc0cea;
 }
