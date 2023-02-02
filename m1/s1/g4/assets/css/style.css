@@ -114,6 +114,7 @@ main .fonte{
     color: #a1abad;
 }
 main article{
+    padding: 0;
     background-color: transparent;
 }
 main ul, main ol{
