@@ -29,9 +29,6 @@ h2 {
 h3 {
     margin-bottom: 10px;
 }
-p {
-    margin-bottom: 40px;
-}
 img {
     max-width: 100%;
 }
@@ -57,14 +54,14 @@ main {
     margin-bottom: 70px;
 }
 main > section {
-    padding: 40px 0;
-}
-main > section p{
-    padding: 0 30px;
+    padding: 40px 30px;
 }
 main > section:first-child{
     background-image: url(../images/banner.jpg);
     background-size: cover;
+}
+main > section:first-child p{
+    margin-bottom: 40px;
 }
 main > section:last-child{
     color: #fff;
@@ -72,35 +69,36 @@ main > section:last-child{
     padding-top: 80px;
 }
 main > section:last-child h2 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: #fff;
 }
-figure {
-    box-sizing: border-box;
+main > section .flex-item{
     margin-bottom: 40px;
 }
+figure{
+    padding: 0 40px
+}
 figure img {
-    width: 300px;
     border-radius: 100%;
 }
 a.btn{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     line-height: 1.65;
+    font-size: 1rem;
     text-transform: uppercase;
     background-color: #f04c2f;
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    margin-bottom: 40px;
-    text-decoration: none;
+    padding: 15px 30px;
+/*    margin-bottom: 40px; <-- Il browser non lo renderizza?!!! */
+    text-decoration: none;    
 }
-.no-margin{
-    margin: 0;
-}
+
 .name {
     font-size: 1.4rem;
+    margin-top: 40px;
 }
 .job {
     font-size: 1rem;
@@ -120,8 +118,8 @@ aside {
     width: 100%;
     margin-bottom: 10px
 }
-.card .content p {
-    padding: 0 25px;
+.card .content {
+    padding: 0 25px 40px 25px;
 }
 /* FOOTER */
 footer {
