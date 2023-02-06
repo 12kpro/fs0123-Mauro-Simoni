@@ -17,12 +17,24 @@
             console.log(`${btn1} - ${btn2} - ${btn3} - ${btn4}`);
             console.log(`Io sono il ${btn1}`);
 
+            var timeout, age
+
             var loginRes = document.getElementById("loginRes");
             var ageBtn = document.querySelector("input[type=button]");
+            var input = document.getElementById("age")
+
+                input.addEventListener('keyup',(e) =>{
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        age = Number(input.value)
+                        if(typeof age == 'number'){
+                            ageBtn.disabled = false
+                        }
+                }, 1000)
+                })
 
                 ageBtn.addEventListener('click',() => {
                     console.log('Vela' + 'motore' + 'macchina' + 'moto');
-                    var age = document.getElementById('age').value;
                     console.log(age);
                     if(age >=18 && age <=110) {
                         console.log('ok');
@@ -47,11 +59,13 @@
 </div>
 
 <form>
-    <input id="age" type="number" required>
-    <input type="button" class="btn" value="Invia">
+    <input id="age" type="number" placeholder="Inserisci la tua età">
+    <input type="button" class="btn" value="Invia" disabled>
 </form>
 <div id="loginRes"></div>
+<!--
 <script src="assets/js/index.js"></script>
 <script src="assets/js/naming.js"></script>
+-->
 </body>
 </html>
