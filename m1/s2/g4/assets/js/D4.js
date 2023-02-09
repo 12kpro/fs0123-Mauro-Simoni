@@ -250,5 +250,12 @@ Crea una funzionalità che prenda un elemento casuale dall'array "starWarsCharac
 */
 
 let r = starWarsCharacters[Math.floor(Math.random()*starWarsCharacters.length)]
-console.log(`${r.name} è ${r.gender}, è alto ${r.height}, pesa ${r.mass}. Ha i capelli di colore ${r.hair_color} e la sua pelle  è ${r.skin_color}.
-Ha gli occhi di colore ${r.eye_color} ed è nato nel ${r.birth_year}`);
+let pronoun = (r.gender == 'robot' || r.gender == 'male') ? 'He' : 'She'
+
+console.log(`
+${r.name} is tall ${r.height} cm,
+${pronoun}'s weighs is ${r.mass} Kg.
+${pronoun} has ${r.hair_color} colored hair, ${r.eye_color} eyes and
+${r.skin_color} skin.
+${pronoun} is born in ${r.birth_year}
+`);
