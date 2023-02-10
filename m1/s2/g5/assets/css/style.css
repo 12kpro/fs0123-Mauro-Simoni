@@ -1,0 +1,73 @@
+/* Generali  */
+h1,p{
+    margin: 0;
+}
+/* Corpo calcolatrice */
+.calculator {
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    margin: 10rem auto 0 auto;
+    max-width: 18rem;
+    overflow: hidden;background: #202020;
+  }
+  /* Display */
+  #display {
+    color: #fff;
+    height: 4.5rem;
+    
+    padding: 0.5rem 0;
+     text-align: end;
+  }
+  #operation{
+    height: 1.5rem;
+    font-size: 1.5rem;
+    padding: 0 0.75rem;
+  }
+  #result{
+    height: 3rem;
+    font-size: 3rem;
+    padding: 0 0.75rem;
+  }
+  /* Tasti */
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3px;
+  }
+  .key {
+    background: #323232;
+    color: #fff;
+    border: none;
+    padding: 1rem 1.25rem;
+    font-size: 1.5rem;
+  }
+  .key:active,
+  .key:focus {
+    box-shadow: 0 0 8px 0 rgba(253, 252, 252, 0.3) inset;
+  }
+  .operator {
+    background: #3c3c3c;
+  }
+  .operator:active {
+    background: #6c6c6c;
+  }
+  .enter {
+    grid-column: 4 / 5;
+    grid-row: 2 / span 3;
+    background: #b29294;
+  }
+  .enter:active {
+    background: #ffd0d0;
+  }
+  button:disabled{
+    color:#6c6c6c
+  }
+/* Note */
+#note{
+    color: #fff;
+    padding: 1rem;
+    line-height: 1rem;
+}
+#note h1{
+    margin-bottom: 1rem;
+}

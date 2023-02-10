@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/calc.js"></script>
+    <title>Calcolatrice</title>
+</head>
+<body>
+    <div class="calculator">
+        <div id="display">
+            <div id="operation"></div>
+            <div id="result">0</div>
+        </div>
+        <div class="keys">
+            <button class="key operator" data-type="operation" value="add">&plus;</button>
+            <button class="key operator" data-type="operation" value="subtract">&minus;</button>
+            <button class="key operator" data-type="operation" value="multiply">&times;</button>
+            <button class="key operator" data-type="operation" value="divide">&divide;</button>
+            <button class="key" value="7">7</button>
+            <button class="key" value="8">8</button>
+            <button class="key" value="9">9</button>
+            <button class="key" value="4">4</button>
+            <button class="key" value="5">5</button>
+            <button class="key" value="6">6</button>
+            <button class="key" value="1">1</button>
+            <button class="key" value="2">2</button>
+            <button class="key" value="3">3</button>
+            <button class="key" value="0">0</button>
+            <button class="key" value=".">.</button>
+            <button class="key operator" data-type="operation" value="reset">C</button>
+            <button class="key operator" value="del">&lArr;</button>
+            <button class="key enter" data-type="operation" value="calc">&equals;</button>
+        </div>
+        <div id="note">
+            <h1>Istruzioni</h1>
+            <p>Per vedere il rusultato delle operazioni puoi premere il tasto &equals; 
+                oppure proseguire selezionando l'operazione successiva &plus; &minus; &times; &divide;
+            </p>
+        </div>
+    </div>
+</body>
+</html>
