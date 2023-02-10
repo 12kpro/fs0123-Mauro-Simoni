@@ -26,7 +26,7 @@ const calculator = {
         let p = this.parameter
         let operationDisplay = document.getElementById('operation')
         let resultDisplay = document.getElementById('result')
-        let symbol = this.findSymbol(p.operator)
+        let symbol = this.findOperator(p.operator,'symbol')
         if ( p.result === 'error' ){
             this.disableControls(true)
         }
@@ -82,39 +82,26 @@ const calculator = {
         if ( operator || operator === '' ) this.parameter.operator = operator
         if ( result || result === '' ) this.parameter.result = result
     },
-    // unificare le seguenti 2 funzioni
-    findSymbol:function(operator){
-        for(let o of this.allowedOperator){
-            if (o.type === operator){ 
-                return o.symbol
-            }
-        }
-        return ''
-    },
-    findOperator: function(operator){
-        for(let o of this.allowedOperator){
-            if (o.type === operator){ 
-                return true
-            }
-        }
-        return false 
+    findOperator: function (operator,get = 'type') {
+        let searchOperator = this.allowedOperator.find((o) => o.type === operator);
+        return searchOperator ? searchOperator[get] : false;
     },
     calculatorSet: function(clickedKey,type){
         // Logica della calcolatrice
         let p = this.parameter
         let operatorIsSet = this.findOperator(p.operator)
         let isAllowed = this.findOperator(clickedKey)
+        let fn = this.findOperator(p.operator)
+        console.log(fn);
 
         if ( isAllowed  && type == 'operation'){
             if( p.result.length > 0) {
                 this.updateparameter(p.result, '', clickedKey, '')
             }else if( p.n.length > 0 && p.m.length > 0){
                 let tmpRes = this.calculate(p.n, p.m, p.operator)
-                if ( tmpRes === 'error'){
-                    this.updateparameter(p.n, p.m, p.operator, tmpRes)
-                }else{
-                    this.updateparameter(tmpRes, '', clickedKey, '')
-                }
+                ( tmpRes === 'error') 
+                    ? this.updateparameter(p.n, p.m, p.operator, tmpRes) 
+                    : this.updateparameter(tmpRes, '', clickedKey, '')
             }else if ( p.n.length > 0 ) {
                 this.updateparameter(false, false, clickedKey, false )
             }else{
