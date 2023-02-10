@@ -61,7 +61,7 @@ const calculator = {
             p[operand] = p[operand].slice(0,-1)
             p.result = ''
         } else if ( key === '.' ) {
-            if (!decimalIsSet && pos0 !== "" ){  p[operand] = p[operand] + key }
+            if (!decimalIsSet && pos0 !== "" && !p.result ){  p[operand] = p[operand] + key }
         } else if( key === '0' ) {
             if ( ( pos0 !== '0' || pos0 === '' ) ||  ( pos0 === '0' && pos1 === '.' ) ){
                 p[operand] = p[operand] + key
@@ -134,7 +134,7 @@ const calculator = {
             this.updateOperand(clickedKey, 'n')
         }
         this.updateDisplay()
-        //console.log(`n=${p.n}, m=${p.m}, operator=${p.operator}, result=${p.result}`);
+        console.log(`n=${p.n}, m=${p.m}, operator=${p.operator}, result=${p.result}`);
     },
     calculate: function(n,m,operator){
         // Eseguo l' operazione impostata nei parametri, nel caso della divisione restuisco un errore se il secondo operando è 0
