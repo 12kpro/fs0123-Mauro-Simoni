@@ -52,19 +52,19 @@ const calculator = {
         },
         {
             type:'sqrt', 
-            symbol: (n) => { return`<math><mroot><mi>${n}</mi><mn>2</mn></mroot></math>`},
+            symbol: (n) => { return`<math><mroot><mi>${ n ? n : 'x' }</mi><mn>2</mn></mroot></math>`},
             singleOperand: true,
             operation: (n) => { return Math.sqrt(n) }
         },
         {
             type:'cbrt', 
-            symbol: (n) => { return`<math><mroot><mi>${n}</mi><mn>3</mn></mroot></math>`},
+            symbol: (n) => { return`<math><mroot><mi>${ n ? n : 'x' }</mi><mn>3</mn></mroot></math>`},
             singleOperand: true,
             operation: (n) => { return Math.cbrt(n) }
         },
         {
             type:'pow', 
-            symbol: (n,m) => {return `<math><msup><mi>${n}</mi><mn>${ m ? m : 'y'}</mn></msup></math>`},
+            symbol: (n,m) => {return `<math><msup><mi>${n}</mi><mn>${ m ? m : 'y' }</mn></msup></math>`},
             singleOperand: false,
             operation: (n,m) => { return Math.pow(n,m) }
         },
@@ -97,8 +97,10 @@ const calculator = {
             this.resultDisplay.classList.remove("error");
             this.resultDisplay.textContent =  ( p.result ) ? p.result : '--'
         }
-        if ( p.n  && p.operator && so ){  
+        if ( p.n && p.operator && so ){  
             this.operationDisplay.innerHTML =  `${symbol(p.n)} &equals;`
+        } else if ( p.operator && so ){
+            this.operationDisplay.innerHTML =  `${symbol(p.n)}`
         } else if ( p.n  && p.m && p.operator ){
             this.operationDisplay.innerHTML = `${symbol(p.n,p.m)} &equals;`
         } else if ( p.n  && p.operator ){
@@ -175,15 +177,15 @@ const calculator = {
             }else{
                 if ( p.result.length > 0 ){
                     p.n = p.result; p.m=''; p.operator = key; p.result = '';
-                    p.result = this.calculate(p.n, p.m, p.operator)
+                    p.result = this.calculate(p.n, p.m, p.operator, so)
                 }else if( p.n.length > 0 && p.m.length > 0 ){
                     p.n = this.calculate(p.n, p.m, p.operator)
                     p.m = ''
                     p.operator = key;
-                    p.result = this.calculate(p.n, p.m, p.operator)
+                    p.result = this.calculate(p.n, p.m, p.operator,so )
                 }else if( p.n.length > 0  ){
                     p.operator = key;
-                    p.result = this.calculate(p.n, p.m, p.operator)
+                    p.result = this.calculate(p.n, p.m, p.operator, so)
                 }else{
                     p.n = '0'; p.operator = key;
                 }
@@ -191,12 +193,14 @@ const calculator = {
         }
     },
     doAction: function (p,key) {
+        let so = this.findOperator(p.operator,'singleOperand')
+
         if (key === 'reset' ){
             p.n = ''; p.m = ''; p.operator = ''; p.result = ''; p.error = '';
             this.resultDisplay.classList.remove("error");
             this.disableControls(false)
-        } else if (key === 'calc' && p.n.length > 0 && p.operator.length > 0) {
-            p.result = this.calculate(p.n,p.m,p.operator)
+        } else if (key === 'calc' && p.n.length > 0 && p.operator.length > 0 ) {
+            p.result = this.calculate(p.n,p.m,p.operator, so)
         }
     },
     calculatorSet: function(key,type){
@@ -239,7 +243,7 @@ const calculator = {
                 } else {
                     result = Number(operation(n,m).toFixed(4)).toString()
                 }
-            }else if ( n > 0 ){
+            }else if ( n > 0 && so ){
                 result = Number(operation(n).toFixed(4)).toString()
             }else{
                 this.parameter.error = this.errorMsgs[2]
