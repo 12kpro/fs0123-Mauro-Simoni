@@ -119,15 +119,16 @@ const calculator = {
         // Eseguo l'aggiornnamento dei valori degli operandi
         let operand = 'n'
         let so = this.findOperator(p.operator,'singleOperand')
-        if ( p.operator.length > 0 && p.n.length > 0 && !so ) { operand = 'm' }
-
+  
         let pos0 = p[operand].charAt(0)
         let pos1 = p[operand].charAt(1)
 
         if ( p.result.length > 0 && key !== 'del' && key !== '.' ){
             p.n = ''; p.m = ''; p.operator = ''; p.result = '';
         }
-        
+
+        if ( p.operator.length > 0 && p.n.length > 0 && !so ) { operand = 'm' }
+
         switch (key) {
             case 'del':
                 p[operand] = p[operand].slice(0,-1)
@@ -175,6 +176,11 @@ const calculator = {
                 if ( p.result.length > 0 ){
                     p.n = p.result; p.m=''; p.operator = key; p.result = '';
                     p.result = this.calculate(p.n, p.m, p.operator)
+                }else if( p.n.length > 0 && p.m.length > 0 ){
+                    p.n = this.calculate(p.n, p.m, p.operator)
+                    p.m = ''
+                    p.operator = key;
+                    p.result = this.calculate(p.n, p.m, p.operator)
                 }else if( p.n.length > 0  ){
                     p.operator = key;
                     p.result = this.calculate(p.n, p.m, p.operator)
@@ -212,7 +218,7 @@ const calculator = {
         }
 
         this.renderDisplay(p)
-        console.log(p);
+        //console.log(p);
     },
     calculate: function(n, m, operator, so = false ){
         // Eseguo l' operazione impostata nei parametri, nel caso della divisione restuisco un errore se il secondo operando è 0
