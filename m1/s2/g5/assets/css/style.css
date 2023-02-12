@@ -2,12 +2,15 @@
 h1,p{
     margin: 0;
 }
+math{
+  pointer-events: none;
+}
 /* Corpo calcolatrice */
 .calculator {
     border-radius: 10px;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
     margin: 10rem auto 0 auto;
-    max-width: 18rem;
+    max-width: 20rem;
     overflow: hidden;background: #202020;
   }
   /* Display */
@@ -25,8 +28,13 @@ h1,p{
   }
   #result{
     height: 3rem;
+    line-height: 3rem;
     font-size: 3rem;
     padding: 0 0.75rem;
+  }
+  #result.error{
+    font-size: 1.4rem;
+    text-align: center;
   }
   /* Tasti */
   .keys {
@@ -53,7 +61,7 @@ h1,p{
   }
   .enter {
     grid-column: 4 / 5;
-    grid-row: 2 / span 3;
+    grid-row: 3 / span 3;
     background: #b29294;
   }
   .enter:active {
