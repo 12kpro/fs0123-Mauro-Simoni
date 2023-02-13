@@ -345,4 +345,4 @@ function matrixGenerator(x,y) {
     return matrix
 }
 
-console.log(matrixGenerator(3,2));
+console.log(matrixGenerator(6,4));
