@@ -334,11 +334,6 @@ console.log(dayDiff('04/10/2022'));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-let arr = [
-    ['00', '01', 02]
-    ['10', '11', 12]
-]
-
 function matrixGenerator(x,y) {
     let matrix = []
     for(let iy = 0; iy < y; iy++){
