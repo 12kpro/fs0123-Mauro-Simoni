@@ -28,51 +28,51 @@ const calculator = {
     allowedOperator: [
         {
             type:'add',
-            symbol: (n,m) =>{ return `<math><mrow><mn>${n}</mn><mo>&plus;</mo><mn>${m}</mn></mrow></math>`},
+            symbol: (n,m) => `<math><mrow><mn>${n}</mn><mo>&plus;</mo><mn>${m}</mn></mrow></math>`,
             singleOperand: false,
-            operation: (n,m) => { return n + m }
+            operation: (n,m) => n + m
         },
         {
             type:'subtract', 
-            symbol: (n,m)  =>{ return `<math><mrow><mn>${n}</mn><mo>&minus;</mo><mn>${m}</mn></mrow></math>`},
+            symbol: (n,m)  => `<math><mrow><mn>${n}</mn><mo>&minus;</mo><mn>${m}</mn></mrow></math>`,
             singleOperand: false,
-            operation: (n,m) => { return n - m }
+            operation: (n,m) => n - m
         },
         {
             type:'multiply', 
-            symbol: (n,m)  =>{ return `<math><mrow><mn>${n}</mn><mo>&times;</mo><mn>${m}</mn></mrow></math>`},
+            symbol: (n,m)  => `<math><mrow><mn>${n}</mn><mo>&times;</mo><mn>${m}</mn></mrow></math>`,
             singleOperand: false,
-            operation: (n,m) => { return n * m }
+            operation: (n,m) => n * m 
         },
         {
             type:'divide', 
-            symbol: (n,m)  =>{ return `<math><mrow><mn>${n}</mn><mo>&divide;</mo><mn>${m}</mn></mrow></math>`},
+            symbol: (n,m)  => `<math><mrow><mn>${n}</mn><mo>&divide;</mo><mn>${m}</mn></mrow></math>`,
             singleOperand: false,
-            operation: (n,m) => { return n / m }
+            operation: (n,m) => n / m
         },
         {
             type:'sqrt', 
-            symbol: (n) => { return`<math><mroot><mi>${ n ? n : 'x' }</mi><mn>2</mn></mroot></math>`},
+            symbol: (n) => `<math><mroot><mi>${ n ? n : 'x' }</mi><mn>2</mn></mroot></math>`,
             singleOperand: true,
-            operation: (n) => { return Math.sqrt(n) }
+            operation: (n) => Math.sqrt(n)
         },
         {
             type:'cbrt', 
-            symbol: (n) => { return`<math><mroot><mi>${ n ? n : 'x' }</mi><mn>3</mn></mroot></math>`},
+            symbol: (n) => `<math><mroot><mi>${ n ? n : 'x' }</mi><mn>3</mn></mroot></math>`,
             singleOperand: true,
-            operation: (n) => { return Math.cbrt(n) }
+            operation: (n) => Math.cbrt(n)
         },
         {
             type:'pow', 
-            symbol: (n,m) => {return `<math><msup><mi>${n}</mi><mn>${ m ? m : 'y' }</mn></msup></math>`},
+            symbol: (n,m) => `<math><msup><mi>${n}</mi><mn>${ m ? m : 'y' }</mn></msup></math>`,
             singleOperand: false,
-            operation: (n,m) => { return Math.pow(n,m) }
+            operation: (n,m) => Math.pow(n,m)
         },
         {
             type:'log', 
-            symbol: (n) => {return `<math><msup><mi>log</mi><mn>e</mn></msup><mn>${n}</mn></math>`},
+            symbol: (n) => `<math><msup><mi>log</mi><mn>e</mn></msup><mn>${n}</mn></math>`,
             singleOperand: true,
-            operation: (n) => { return Math.log(n) }
+            operation: (n) => Math.log(n)
         },        
         
     ],
