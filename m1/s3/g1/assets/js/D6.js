@@ -106,7 +106,7 @@ console.log(reverseString('ciao'));
 
 function upperFirst(str) {
     let txt = str.split(" ")
-    console.log(txt);
+
     let camelCase = []
         for( let char of txt){
             char = char.split("")
@@ -149,7 +149,7 @@ function giveMeRandom(n) {
     let numbers = [0,1,2,3,4,5,6,7,8,9,10]
     let randNumbers = []
 
-        for(var i = 0; i < n; i++){
+        for(let i = 0; i < n; i++){
             let rand = Math.floor(Math.random() * numbers.length);
             randNumbers.push(numbers[rand])
         }
@@ -178,3 +178,176 @@ function checkArray(numbers) {
 }
 
 checkArray(giveMeRandom(15))
+/* EXTRA 2
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "shoppingCartTotal" che calcola il totale dovuto al negozio (tenendo conto delle quantità di ogni oggetto).
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+let shoppingCart = [
+    { price: 10, name: 'mango', id: 1, quantity: 2 },
+    { price: 5, name: 'kiwi', id: 2, quantity: 4 },
+    { price: 15, name: 'banana', id: 3, quantity: 2 },
+    { price: 35, name: 'noci', id: 4, quantity: 7 }
+]
+function shoppingCartTotal(cart) {
+    let total = 0
+    for (const article of cart) {
+            total += article.price * article.quantity
+    }
+    return total
+}
+ console.log( shoppingCartTotal(shoppingCart));
+
+ /* EXTRA 3
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "addToShoppingCart" che riceve un nuovo oggetto dello stesso tipo, lo aggiunge a "shoppingCart" e ritorna il nuovo numero totale degli elementi.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+let newArticle = { price: 25, name: 'ciliegie', id: 5, quantity: 10 }
+
+function addToShoppingCart(article) {
+        shoppingCart.push(article)
+        return shoppingCart
+}
+
+console.log( addToShoppingCart(newArticle));
+
+/* EXTRA 4
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "maxShoppingCart" che riceve l'array "shoppingCart" e ritorna l'oggetto più costoso in esso contenuto.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function maxShoppingCart(cart) {
+    let maxPrice = cart.reduce((a,b)=>{
+        return a.price > b.price ? a : b
+    })
+    return maxPrice
+}
+ console.log( maxShoppingCart(shoppingCart));
+
+/* EXTRA 5
+ Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
+ Crea una funzione chiamata "latestShoppingCart" che riceve l'array "shoppingCart" e ritorna l'ultimo elemento.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function latestShoppingCart(cart) {
+    return cart[cart.length -1]
+}
+ console.log( latestShoppingCart(shoppingCart));
+
+ /* EXTRA 6
+ Crea una funzione chiamata "loopUntil" che riceve un numero intero come parametro con valore tra 0 e 9.
+ La funzione è composta da un ciclo che stampa un numero casuale tra 0 e 9 finchè il numero casuale non è maggiore di x per tre volte di fila.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+function loopUntil(x) {
+    let numbers = [0,1,2,3,4,5,6,7,8,9]
+    let randNumbers = []
+    
+    let i = 0
+    
+    while (i < 3) {
+        let rand = Math.floor(Math.random() * numbers.length);
+        randNumbers.push(numbers[rand])
+        if ( rand > x ){ i++ }
+    }
+    return randNumbers
+    
+}
+
+console.log(loopUntil(2));
+
+/* EXTRA 7
+Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+function average(arr) {
+    let sum = 0
+    let idx = 0
+    for ( let char of arr){
+        if (typeof char === 'number' ){
+             sum += char
+             idx++
+        }
+    }
+    return sum / idx
+}
+
+let test = ['a', 1, '4', 'ciao', 10, '12']
+console.log(average(test))
+/* EXTRA 8
+ Crea una funzione chiamata "longest" che trova la stringa più lunga all'interno di un array di stringhe fornito come parametro.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+function longest(strs) {
+    let maxStr = strs.reduce((a,b)=>{
+        return a.length > b.length ? a : b
+    })
+    return maxStr
+}
+let strings = ["Crea", "una", "funzione", "chiamata", "longest", "che", "trova", "la", "stringa"]
+ console.log( longest(strings));
+
+
+/* EXTRA 9
+ Crea una funzione per creare un filtro anti-spam per la tua casella email. La funzione riceve un parametro stringa chiamato "emailContent", e torna un valore booleano.
+ La funzione deve ritornare true se "emailContent" non contiene le parole "SPAM" o "SCAM".
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+function spamFilter(str) {
+    let spam = str.includes("SPAM")
+    let scam = str.includes("SCAM")
+    return !spam && !scam ? true : false
+}
+
+console.log(spamFilter("Hello world, welcome to the universe."));
+/* EXTRA 10
+ Scrivi una funzione che riceve una data come parametro, e calcola il numero di giorni passati da quella data.
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+
+function dayDiff(day) {
+    return Math.floor((new Date() - new Date(day)) / (1000 * 3600 * 24))
+}
+console.log(dayDiff('04/10/2022'));
+  
+/* EXTRA 11
+ Scrivi una funzione chiamata "matrixGenerator" che riceve come paremetri due numeri interi, "x" e "y".
+ Il risultato deve essere una matrice di "x" volte "y", e i valori devono rispecchiare gli indici della posizione all'interno della matrice.
+ Es.: x = 3, y = 2
+ ["00","01","02"
+ "10","11","12"]
+*/
+
+/* SCRIVI QUI LA TUA RISPOSTA */
+
+let arr = [
+    ['00', '01', 02]
+    ['10', '11', 12]
+]
+
+function matrixGenerator(x,y) {
+    let matrix = []
+    for(let iy = 0; iy < y; iy++){
+        matrix[iy] = []
+        for(let ix = 0; ix < x; ix++){
+            matrix[iy][ix] = `${iy}${ix}`
+        }
+    }
+    return matrix
+}
+
+console.log(matrixGenerator(3,2));
