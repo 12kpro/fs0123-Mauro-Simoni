@@ -48,6 +48,7 @@ console.log(oddArrayV2(100));
   9%5 = 1 dispari 9/5 = 1 resto( modulo) = 4
   */
     return numbers
+
   }
   // oppure
   function fiveMultiplesV2(n) {
@@ -116,9 +117,18 @@ console.log( toLength(['ciao', 'treviso', 'metereologia']));
   Scrivi una funzione per eliminare solo i valori PARI da un array.
 */
 function evenRemove(n) {
+  let odd = []
+  for (let i = 0; i < n.length - 1; i++) {
+    if ( n[i]%2 ){ odd.push(i)}
+  }
+  return odd
+}
+
+function evenRemoveV2(n) {
   return n.filter((e) => e%2) //come su es 2
 }
 console.log( evenRemove([...Array(5).keys()]));
+console.log( evenRemoveV2([...Array(5).keys()]));
 
 
 
