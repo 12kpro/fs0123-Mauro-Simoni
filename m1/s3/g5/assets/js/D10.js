@@ -142,12 +142,12 @@ console.log(howManyDays('2023-02-20')); // <-- ISO Date YYYY-MM-DD  ISO 8601 Per
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
-function isTodayMyBirthday(date) {
-  let birth = new Date('1979-04-10')
-      date  = new Date(date)  
+function isTodayMyBirthday() { 
+  let birth = new Date('1979-04-10') // <-- ISO Date YYYY-MM-DD  ISO 8601 Per doc https://www.w3schools.com/js/js_date_formats.asp
+      date  = new Date()  
   return  date.getDate() == birth.getDate() && date.getMonth() == birth.getMonth() ? true : false    
 }
-console.log(isTodayMyBirthday('2023-04-10'));// <-- ISO Date YYYY-MM-DD  ISO 8601 Per doc https://www.w3schools.com/js/js_date_formats.asp
+console.log(isTodayMyBirthday());
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
