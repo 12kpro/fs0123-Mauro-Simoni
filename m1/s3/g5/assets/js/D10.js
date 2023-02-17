@@ -306,11 +306,20 @@ function onlyTheYears() {
         res.push(year);
     }
   });
+  
+  //oppure 
+  for (let year of years) {
+      if (!res.includes(year)) {
+        res.push(year);
+    }
+  }
   return res
 */
+
   return [...new Set(years)] // rimuove duplicati
 }
 console.log( onlyTheYears());
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
