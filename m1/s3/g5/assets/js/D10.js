@@ -369,7 +369,7 @@ console.log(removeIndex(3));
 function returnElId(){
   return document.getElementById('container')
   /*oppure
-  return document.querySelector('#id')
+  return document.querySelector('#container')
   */
 }
 //console.log(returnElId());
@@ -486,7 +486,7 @@ function isItPrime(n){
   }
   return isPrime ? true : false
 }
-console.log(isItPrime(7));
+console.log(isItPrime(10));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
