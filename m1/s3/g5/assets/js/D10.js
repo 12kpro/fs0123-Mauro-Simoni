@@ -287,8 +287,11 @@ console.log(newestMovie());
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
 function countMovies() {
+      //se nel array ci fossero video con type diverso da movie
       let film = movies.filter(movie => movie.Type === 'movie')
       return film.length
+      //oppure
+      // return movies.length
 }
 console.log(countMovies());
 /* ESERCIZIO 14
