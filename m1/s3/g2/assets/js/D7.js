@@ -277,7 +277,7 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 function tooOld(n) {
-  return n.reduce((a,b) => a.Year > b.Year ? a : b )
+  return n.reduce((a,b) => a.Year < b.Year ? a : b )
 }
 console.log( tooOld(movies));
 /* ESERCIZIO 13
